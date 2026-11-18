@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { products } from "@/data/products";
 import { settings } from "@/data/settings";
 import { getProduct } from "@/lib/catalog";
-import { firstProductImage } from "@/lib/assets.server";
+import { shareMetadata } from "@/lib/seo.server";
 import { ProductView } from "@/components/product/ProductView";
 import { RelatedProducts } from "@/components/product/RelatedProducts";
 
@@ -17,16 +17,16 @@ export async function generateMetadata({ params }: PageProps<"/produit/[slug]">)
   const { slug } = await params;
   const p = getProduct(slug);
   if (!p) return {};
-  const image = firstProductImage(p.images);
   const priceText = p.price === null ? "Prix sur WhatsApp" : `${p.price} DH`;
+  const description = `${p.description} Livraison partout au Maroc, paiement à la livraison.`;
   return {
     title: `${p.name} — ${priceText}`,
-    description: `${p.description} Livraison partout au Maroc, paiement à la livraison.`,
-    openGraph: {
-      title: `${p.name} · ${settings.storeName}`,
-      description: p.description,
-      ...(image && { images: [{ url: image, alt: p.name }] }),
-    },
+    description,
+    ...shareMetadata({
+      title: `${p.name} — ${priceText} · ${settings.storeName}`,
+      description,
+      card: `/og/products/${p.slug}.jpg`,
+    }),
   };
 }
 

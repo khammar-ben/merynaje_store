@@ -3,6 +3,7 @@ import { Amiri, Cormorant_Garamond, Jost, Tajawal } from "next/font/google";
 import { settings } from "@/data/settings";
 import { getAssetManifest } from "@/lib/assets.server";
 import { getSiteUrl } from "@/lib/site-url.server";
+import { SITE_DESCRIPTION, SITE_TITLE, shareMetadata } from "@/lib/seo.server";
 import { Providers } from "@/components/Providers";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
@@ -38,23 +39,12 @@ const tajawal = Tajawal({
   preload: false,
 });
 
-const title = "Mery Naje — Prêt-à-porter féminin à Casablanca";
-const description =
-  "Robes, ensembles, manteaux et plus : la boutique de prêt-à-porter féminin Mery Naje à Casablanca (Hay Adil). Livraison partout au Maroc, paiement à la livraison, commande facile sur WhatsApp.";
-
 export const metadata: Metadata = {
   metadataBase: new URL(getSiteUrl()),
-  title: { default: title, template: "%s · Mery Naje" },
-  description,
+  title: { default: SITE_TITLE, template: "%s · Mery Naje" },
+  description: SITE_DESCRIPTION,
   applicationName: settings.storeName,
-  openGraph: {
-    type: "website",
-    locale: "fr_MA",
-    siteName: settings.storeName,
-    title,
-    description,
-  },
-  twitter: { card: "summary_large_image", title, description },
+  ...shareMetadata({ title: SITE_TITLE, description: SITE_DESCRIPTION }),
   robots: settings.allowIndexing ? { index: true, follow: true } : { index: false, follow: false },
 };
 

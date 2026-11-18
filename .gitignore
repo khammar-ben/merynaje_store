@@ -42,6 +42,8 @@ next-env.d.ts
 
 # generated image sizes (scripts/image-variants.mjs)
 /public/_img/
+# generated link-preview cards (scripts/og-images.mjs)
+/public/og/
 
 # Claude Code personal settings
 /.claude/settings.local.json

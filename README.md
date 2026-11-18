@@ -166,6 +166,20 @@ npx vercel --prod   # mise en ligne
 
 ---
 
+## Aperçu des liens (WhatsApp, Instagram, Facebook)
+
+Quand vous envoyez un lien du site dans une conversation, une carte d'aperçu s'affiche :
+
+- **Lien de l'accueil** : carte aux couleurs de la boutique (bois, arches dorées, photos) avec « Livraison partout au Maroc · Paiement à la livraison ».
+- **Lien d'un produit** : carte avec la photo, le nom, le **prix** et les tailles du produit.
+
+Ces cartes sont créées automatiquement à chaque `npm run build` (dossier `public/og/`, script `scripts/og-images.mjs`),
+à partir des photos et de `data/products.ts` : changez un prix, la carte suit. Pour les voir en local : `npm run og`.
+Les photos de l'accueil se choisissent dans `settings.hero.products`.
+
+> WhatsApp garde l'aperçu en mémoire : si vous modifiez une carte, l'ancien aperçu peut s'afficher encore quelque temps
+> pour un lien déjà envoyé.
+
 ## Fonctionnement de la commande
 
 1. La cliente ajoute des articles (taille obligatoire) → panier sauvegardé sur son téléphone.

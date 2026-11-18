@@ -2,7 +2,7 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "headers": [
     {
-      "source": "/(icon|apple-icon|opengraph-image)",
+      "source": "/(icon|apple-icon)",
       "headers": [
         {
           "key": "Content-Type",
@@ -16,6 +16,15 @@
     },
     {
       "source": "/_img/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=86400, stale-while-revalidate=604800"
+        }
+      ]
+    },
+    {
+      "source": "/og/(.*)",
       "headers": [
         {
           "key": "Cache-Control",

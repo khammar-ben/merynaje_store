@@ -38,8 +38,3 @@ export function getAssetManifest(): AssetManifest {
     productImages: [...new Set(productImages)],
   };
 }
-
-/** First existing image of a product, for metadata (Open Graph). */
-export function firstProductImage(images: string[]) {
-  return images.find(publicFileExists) ?? null;
-}
