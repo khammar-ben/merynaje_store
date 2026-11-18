@@ -2,19 +2,6 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "headers": [
     {
-      "source": "/(icon|apple-icon)",
-      "headers": [
-        {
-          "key": "Content-Type",
-          "value": "image/png"
-        },
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=86400"
-        }
-      ]
-    },
-    {
       "source": "/_img/(.*)",
       "headers": [
         {

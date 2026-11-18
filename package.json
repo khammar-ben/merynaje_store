@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "predev": "node scripts/image-variants.mjs",
+    "predev": "node scripts/image-variants.mjs && node scripts/icons.mjs",
     "dev": "next dev",
-    "prebuild": "node scripts/image-variants.mjs && node --experimental-strip-types --no-warnings scripts/og-images.mjs",
+    "prebuild": "node scripts/image-variants.mjs && node scripts/icons.mjs && node --experimental-strip-types --no-warnings scripts/og-images.mjs",
     "build": "next build",
     "postbuild": "node scripts/fix-windows-export.mjs",
     "preview": "npx serve@14 out",

@@ -47,3 +47,6 @@ next-env.d.ts
 
 # Claude Code personal settings
 /.claude/settings.local.json
+# generated icons (scripts/icons.mjs)
+/app/icon.png
+/app/apple-icon.png

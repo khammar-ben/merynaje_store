@@ -6,3 +6,5 @@ public/_img
 public/og
 assets
 .claude
+.env*
+.vercel
