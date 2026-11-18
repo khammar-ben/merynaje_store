@@ -1,0 +1,7 @@
+# Not needed by the Vercel build (photos are read from public/, sizes are regenerated)
+node_modules
+.next
+out
+public/_img
+assets
+.claude

@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { products } from "@/data/products";
-import { settings } from "@/data/settings";
 import { collections } from "@/lib/catalog";
+import { getSiteUrl } from "@/lib/site-url.server";
 import { infoNav } from "@/lib/nav";
 
 export const dynamic = "force-static";
@@ -15,5 +15,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/la-boutique/",
     ...infoNav.map((i) => i.href),
   ];
-  return paths.map((p) => ({ url: new URL(p, settings.siteUrl).toString() }));
+  const base = getSiteUrl();
+  return paths.map((p) => ({ url: new URL(p, base).toString() }));
 }

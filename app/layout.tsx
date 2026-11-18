@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Amiri, Cormorant_Garamond, Jost, Tajawal } from "next/font/google";
 import { settings } from "@/data/settings";
 import { getAssetManifest } from "@/lib/assets.server";
+import { getSiteUrl } from "@/lib/site-url.server";
 import { Providers } from "@/components/Providers";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
@@ -42,7 +43,7 @@ const description =
   "Robes, ensembles, manteaux et plus : la boutique de prêt-à-porter féminin Mery Naje à Casablanca (Hay Adil). Livraison partout au Maroc, paiement à la livraison, commande facile sur WhatsApp.";
 
 export const metadata: Metadata = {
-  metadataBase: new URL(settings.siteUrl),
+  metadataBase: new URL(getSiteUrl()),
   title: { default: title, template: "%s · Mery Naje" },
   description,
   applicationName: settings.storeName,

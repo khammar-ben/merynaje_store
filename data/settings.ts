@@ -15,8 +15,12 @@ export const settings = {
   /** Texte du logo (utilisé si /public/logo.png est absent). */
   logoText: "MERYNAJE STORE",
 
-  /** Adresse finale du site (pour le SEO et les partages). À changer après achat du domaine. */
-  siteUrl: "https://merynaje.vercel.app",
+  /**
+   * Adresse du site (aperçus de liens WhatsApp/Instagram, SEO).
+   * Laissez vide : sur Vercel, l'adresse du projet est utilisée automatiquement.
+   * Une fois le nom de domaine acheté, mettez-le ici (ex. "https://merynaje.ma").
+   */
+  siteUrl: "",
 
   /**
    * Indexation Google. Laissez `false` tant que la cliente n'a pas validé le site :
